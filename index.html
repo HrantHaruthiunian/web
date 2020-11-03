@@ -5,19 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <h1> Hello Hrant !</h1>
-    <div>You'll going to learn the Language created by Brendan Eich in armenian: "Բրենդան Այեք"</div>
-    <h3> It's very nice Hrant! :)</h3>
+    <h1>List of homeworks</h1>
+    <h3>Author: Hrant Harutyunyan</h3>
+
 </head>
 
 <body>
     <hr>
-    <br>
-    <script scr="/JS/selector.js"></script>
-    
-    <br>
-    <br>
+    <h2>Please select the topic</h2>
+    <select id="selectTopic">
+        <option value="average">Find the avrage of elements</option>
+        <option value="median">Find the median of elements</option>
+        <option value="duplicates">Find the duplicates in a string</option>
+        <option value="prime">Detect the prime number</option>
+        <option value="sumMatrix">Calculate the sum of matrix</option>
+        <option value="sumRecursive">Calculate the sum with recursion</option>
+    </select>
+
+    <button type="button" onclick="selectorTopic()">submit</button>
     <hr>
+    <p id="homework"> </p>
+    <hr>
+
+    <script type="text/javascript" src="JS/selector.js"></script>
+    <script type="text/javascript" src="JS/JS_Homeworks/getAverage.js"></script>
+    <script type="text/javascript" src="JS/JS_Homeworks/getMedian.js"></script>
+    <script type="text/javascript" src="JS/JS_Homeworks/getStrDuplicates.js"></script>
+    <script type="text/javascript" src="JS/JS_Homeworks/detectPrime.js"></script>
+    <script type="text/javascript" src="JS/JS_Homeworks/sumMatrix.js"></script>
+    <script type="text/javascript" src="JS/JS_Homeworks/sumRecursive.js"></script>
+
+
 </body>
 
 </html>
