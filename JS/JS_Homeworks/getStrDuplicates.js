@@ -2,6 +2,8 @@
 function getStrDuplicates() {
 
    let someStr = "aasdddfksfd";
+   let thisFileName = "getStrDuplicates.js";
+   let fileRefPresentation = "<i>For mor information please see the file <b>" + thisFileName + "</b></i>";
 
    return function () {
       let strCopy = [];
@@ -30,7 +32,7 @@ function getStrDuplicates() {
          sumUpDuplicates += " (" + strDuplicates[i] + ":" + countOfDuplicates[i] + "-units) ";
       }
 
-      let result = "<h4>The initial string is: '" + someStr + "'. <br>Here is the sumUp of the duplicates:<br>" + sumUpDuplicates + "</h4><hr>" + '<i>For mor information please see the file <b>"getStrDuplicates.js"</b></i>';
+      let result = "<h4>The initial string is: '" + someStr + "'. <br>Here is the sumUp of the duplicates:<br>" + sumUpDuplicates + "</h4><hr>" + fileRefPresentation;
 
       return result;
 

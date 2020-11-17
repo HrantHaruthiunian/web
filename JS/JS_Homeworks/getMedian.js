@@ -1,6 +1,8 @@
 function getMedian() {
 
    let intElements = [2, 1, 3, -1, -10];
+   let thisFileName = "getMedian.js";
+   let fileRefPresentation = "<i>For mor information please see the file <b>" + thisFileName + "</b></i>";
 
    return function () {
       // array sorting
@@ -23,7 +25,7 @@ function getMedian() {
       else {
          median = intElements[Math.floor(midElementIndex)];
       }
-      let result = "<h3>The median of elements [" + intElements + "] is " + median + "</h3><hr>" + '<i>For mor information please see the file <b>"getMedian.js"</b></i>';
+      let result = "<h3>The median of elements [" + intElements + "] is " + median + "</h3><hr>" + fileRefPresentation;
       return result;
    }
 

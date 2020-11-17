@@ -3,7 +3,7 @@ function selectorTopic() {
    let topicValue = document.getElementsByTagName("option")[topic].value;
 
    document.getElementById("homework").innerHTML = getHomework(topicValue);
- 
+
    function getHomework(topicValue) {
 
       switch (topicValue) {
@@ -25,7 +25,9 @@ function selectorTopic() {
          case "sumRecursive":
             return sumRecursive()();
             break;
-
+         case "oddEven":
+            return detectOddEven()();
+            break;
          default:
             return "We don't have this homework";
       }
