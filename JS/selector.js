@@ -2,28 +2,34 @@ function selectorTopic() {
    let topic = document.getElementById("selectTopic").selectedIndex;
    let topicValue = document.getElementsByTagName("option")[topic].value;
 
-   switch (topicValue) {
-      case "average":
-         document.getElementById("homework").innerHTML = getAverage()();
-         break;
-      case "median":
-         document.getElementById("homework").innerHTML = getMedian()();
-         break;
-      case "duplicates":
-         document.getElementById("homework").innerHTML = getStrDuplicates()();
-         break;
-      case "prime":
-         document.getElementById("homework").innerHTML = detectPrime()();
-         break;
-      case "sumMatrix":
-         document.getElementById("homework").innerHTML = sumMatrix()();
-         break;
-      case "sumRecursive":
-         document.getElementById("homework").innerHTML = sumRecursive()();
-         break;
+   document.getElementById("homework").innerHTML = getHomework(topicValue);
+ 
+   function getHomework(topicValue) {
 
-      default:
-         document.getElementById("homework").innerHTML = 'default';
+      switch (topicValue) {
+         case "average":
+            return getAverage()();
+            break;
+         case "median":
+            return getMedian()();
+            break;
+         case "duplicates":
+            return getStrDuplicates()();
+            break;
+         case "prime":
+            return detectPrime()();
+            break;
+         case "sumMatrix":
+            return sumMatrix()();
+            break;
+         case "sumRecursive":
+            return sumRecursive()();
+            break;
+
+         default:
+            return "We don't have this homework";
+      }
+
    }
 
 }
