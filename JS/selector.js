@@ -28,6 +28,14 @@ function selectorTopic() {
          case "oddEven":
             return detectOddEven()();
             break;
+         case "numberRec":
+            return numberReconst()();
+            break;
+
+         case "checkNumber":
+            return checkNumber()();
+            break;
+
          default:
             return "We don't have this homework";
       }
