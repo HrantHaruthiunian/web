@@ -31,9 +31,23 @@ function selectorTopic() {
          case "numberRec":
             return numberReconst()();
             break;
-
          case "checkNumber":
             return checkNumber()();
+            break;
+         case "printX":
+            return printX()();
+            break;
+         case "calculator":
+            return calculator()();
+            break;
+         case "bounds":
+            return intWithinBounds()();
+            break;
+         case "hashKey":
+            return findHashKey()();
+            break;
+         case "addSuffixLy":
+            return addSuffixLy()();
             break;
 
          default:
