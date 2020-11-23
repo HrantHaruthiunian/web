@@ -3,7 +3,7 @@
 function checkNumber() {
 
    let thisFileName = "checkNumber.js";
-   let fileRefPresentation = "<i>For mor information please see the file <b>" + thisFileName + "</b></i>";
+   let fileRefPresentation = `<i>For mor information please see the file <b> ${thisFileName} </b></i>`;
 
    let numberInputed = +prompt("Please enter the number");
    let variant = "the number is a multiple of: ";
@@ -35,14 +35,8 @@ function checkNumber() {
          variant = "the number is multiple neither 3 nor 5 and nor 7"; 
       }
 
-      let result = "<h3>The inputed number is: " + numberInputed + "<br>and " + variant + "</h3><hr>" + fileRefPresentation;
+      let result = `<h3>The inputed number is: ${numberInputed} <br>and ${variant}  </h3><hr> ${fileRefPresentation}`;
       return result;
    }
 
-
-
-
 }
-
-
-

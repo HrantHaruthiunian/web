@@ -3,7 +3,7 @@ function sumRecursive() {
    let number = 6;
    let sum = 0;
    let thisFileName = "sumRecursive.js";
-   let fileRefPresentation = "<i>For mor information please see the file <b>" + thisFileName + "</b></i>";
+   let fileRefPresentation = `<i>For mor information please see the file <b> ${thisFileName} </b></i>`;
 
    let sumRec = (function recursion(number) {
       sum = sum + number;
@@ -12,7 +12,7 @@ function sumRecursive() {
    })(number);
 
    return function () {
-      let result = "<h3>The number is: " + number + "<br>and the sum of number's elements is: " + sumRec + "</h3><hr>" + fileRefPresentation;
+      let result = `<h3>The number is: ${number} <br>and the sum of number's elements is: ${sumRec} </h3><hr> ${fileRefPresentation}`;
       return result;
    }
 

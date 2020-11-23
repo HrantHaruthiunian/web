@@ -5,7 +5,7 @@ function numberReconst() {
 
 
    let thisFileName = "numberReconst.js";
-   let fileRefPresentation = "<i>For mor information please see the file <b>" + thisFileName + "</b></i>";
+   let fileRefPresentation = `<i>For mor information please see the file <b> ${thisFileName} </b></i>`;
    let numberInputed = prompt("Please enter the number");
    let numberReconst = 0;
    let lastDigit = numberInputed.slice(numberInputed.length - 1);
@@ -20,7 +20,7 @@ function numberReconst() {
          numberReconst = numberInputed;
       }
 
-      let result = "<h3>The inputed number is: " + numberInputed + "<br>and the number after reconstitution is: " + numberReconst + "</h3><hr>" + fileRefPresentation;
+      let result = `<h3>The inputed number is: ${numberInputed} <br>and the number after reconstitution is: ${numberReconst} </h3><hr> ${fileRefPresentation}`;
 
       return result;
 

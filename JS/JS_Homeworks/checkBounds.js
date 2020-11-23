@@ -4,7 +4,7 @@
 
 function intWithinBounds() {
    let thisFileName = "checkBounds.js";
-   let fileRefPresentation = "<i>For mor information please see the file <b>" + thisFileName + "</b></i>";
+   let fileRefPresentation = `<i>For mor information please see the file <b> ${thisFileName} </b></i>`;
 
    let lowerNumber = +prompt("Please enter the lower number");
    let upperNumber = +prompt("Please enter the upper number");
@@ -14,11 +14,11 @@ function intWithinBounds() {
       
       if (givenNumber > lowerNumber && givenNumber < upperNumber) {
         
-         let result = "<h3>You have inputed the following interval: (" + lowerNumber + ", " + upperNumber + "). As well as a number: " + givenNumber + ".<br> So, the given number is WITHIN the interval. </h3><hr>" + fileRefPresentation;
+         let result = `<h3>You have inputed the following interval: (${lowerNumber}, ${upperNumber}). As well as a number:   ${givenNumber}.<br> So, the given number is WITHIN the interval. </h3><hr> ${fileRefPresentation}`;
          return result;
       }
       else if (givenNumber <= lowerNumber || givenNumber >= upperNumber) {
-         let result = "<h3>You have inputed the following interval: (" + lowerNumber + ", " + upperNumber + "). As well as a number: " + givenNumber + ".<br> So, the given number is NOT WITHIN the interval. </h3><hr>" + fileRefPresentation;
+         let result = `<h3>You have inputed the following interval: (${lowerNumber}, ${upperNumber}). As well as a number:   ${givenNumber}.<br> So, the given number is NOT WITHIN the interval. </h3><hr> ${fileRefPresentation}`;
          return result;
       }
       else {

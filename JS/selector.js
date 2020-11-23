@@ -49,6 +49,9 @@ function selectorTopic() {
          case "addSuffixLy":
             return addSuffixLy()();
             break;
+         case "scores":
+            return addScores()();
+            break;
 
          default:
             return "We don't have this homework";

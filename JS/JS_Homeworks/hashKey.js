@@ -3,7 +3,7 @@
 function findHashKey() {
 
    let thisFileName = "hashKey.js";
-   let fileRefPresentation = "<i>For mor information please see the file <b>" + thisFileName + "</b></i>";
+   let fileRefPresentation = `<i>For mor information please see the file <b> ${thisFileName} </b></i>`;
    let key = prompt("Please enter the key");
 
    let obj1 = {
@@ -28,11 +28,11 @@ function findHashKey() {
       let result = "";
       for (let prop in obj1) {
          if (prop == key) {
-            result = "<h3>Your have input the key: '" + key + "' <br> Your key exists in the object selected </h3><hr>" + fileRefPresentation;
+            result = `<h3>Your have input the key: "${key}" <br> Your key exists in the object selected </h3><hr> ${fileRefPresentation}`;
             break;
          }
          else {
-            result = "<h3>Your have inputed the key: '" + key + "' <br> Your key doesn't exist in the object selected </h3><hr>" + fileRefPresentation;
+            result = `<h3>Your have input the key: "${key}" <br> Your key doesn't exist in the object selected </h3><hr> ${fileRefPresentation}`;
 
          }
 

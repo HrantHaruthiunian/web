@@ -1,12 +1,12 @@
 function sumMatrix() {
 
    let matrix = [
-      [1, 2, 1],
+      [1, 3, 1],
       [3, 2, 2],
       [0, 2, 1]
    ];
    let thisFileName = "sumMatrix.js";
-   let fileRefPresentation = "<i>For mor information please see the file <b>" + thisFileName + "</b></i>";
+   let fileRefPresentation = `<i>For mor information please see the file <b> ${thisFileName} </b></i>`;
 
    return function () {
 
@@ -18,7 +18,7 @@ function sumMatrix() {
          }
       }
 
-      let result = "<h3>The elements of the matrix are: " + matrix + "<br>and the sum of elements is: " + sumOfElements + "</h3><hr>" + fileRefPresentation;
+      let result = `<h3>The elements of the matrix are: ${JSON.stringify(matrix)} <br>and the sum of elements is: ${sumOfElements}</h3><hr> ${fileRefPresentation}`;
 
       return result;
 

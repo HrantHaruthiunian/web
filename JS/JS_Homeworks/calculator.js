@@ -5,7 +5,7 @@
 function calculator() {
 
    let thisFileName = "calculator.js";
-   let fileRefPresentation = "<i>For mor information please see the file <b>" + thisFileName + "</b></i>";
+   let fileRefPresentation = `<i>For mor information please see the file <b> ${thisFileName} </b></i>`;
 
    let firstNumber = +prompt("Please input the 1st number");
    let operator = prompt("Please input the operator ( +, -, / or * )");
@@ -41,7 +41,7 @@ function calculator() {
       }
 
 
-      let result = "<h3>You have inputed: " + firstNumber + operator + secondNumber + ". So the result is: " + answer + "</h3><hr> " + fileRefPresentation;
+      let result = `<h3>You have inputed: ${firstNumber + operator + secondNumber}. So the result is: ${answer} </h3><hr>  ${fileRefPresentation}`;
       return result;
 
    }

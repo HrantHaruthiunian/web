@@ -5,7 +5,7 @@ function printX() {
 
 
    let thisFileName = "printX.js";
-   let fileRefPresentation = "<i>For mor information please see the file <b>" + thisFileName + "</b></i>";
+   let fileRefPresentation = `<i>For mor information please see the file <b>${thisFileName}</b></i>`;
    let icon = "*";
    let iconMatrix = " ";
    let matrixDim = +prompt("Please enter the matrix dimantion");
@@ -29,7 +29,7 @@ function printX() {
 
 
 
-      let result = "<h3>" + iconMatrix + "</h3><hr>" + fileRefPresentation;
+      let result = `<h3> ${iconMatrix} </h3><hr> ${fileRefPresentation}`;
       return result;
 
    }
