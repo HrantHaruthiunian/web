@@ -12,7 +12,8 @@ function sumRecursive() {
    })(number);
 
    return function () {
-      let result = `<h3>The number is: ${number} <br>and the sum of number's elements is: ${sumRec} </h3><hr> ${fileRefPresentation}`;
+      let result = `<h3>The number is: ${number} <br>and the sum of number's elements is: ${sumRec} </h3>
+      <hr> ${fileRefPresentation}`;
       return result;
    }
 

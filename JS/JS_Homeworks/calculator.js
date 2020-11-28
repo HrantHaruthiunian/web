@@ -16,7 +16,7 @@ function calculator() {
 
       if (secondNumber !== 0) {
 
-         
+
          switch (operator) {
             case "+":
                answer = firstNumber + secondNumber;
@@ -35,13 +35,13 @@ function calculator() {
          }
 
 
-      }
-      else {
+      } else {
          return "Can't divide by 0!";
       }
 
 
-      let result = `<h3>You have inputed: ${firstNumber + operator + secondNumber}. So the result is: ${answer} </h3><hr>  ${fileRefPresentation}`;
+      let result = `<h3>You have inputed: ${firstNumber + operator + secondNumber}. 
+      So the result is: ${answer} </h3><hr>  ${fileRefPresentation}`;
       return result;
 
    }

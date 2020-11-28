@@ -27,13 +27,15 @@ function findHashKey() {
    return function () {
       let result = "";
       for (let prop in obj1) {
+         
          if (prop == key) {
-            result = `<h3>Your have input the key: "${key}" <br> Your key exists in the object selected </h3><hr> ${fileRefPresentation}`;
+            result = `<h3>Your have input the key: "${key}" <br> Your key exists in the object selected </h3>
+            <hr> ${fileRefPresentation}`;
             break;
-         }
-         else {
-            result = `<h3>Your have input the key: "${key}" <br> Your key doesn't exist in the object selected </h3><hr> ${fileRefPresentation}`;
 
+         } else {
+            result = `<h3>Your have input the key: "${key}" <br> Your key doesn't exist in the object selected </h3>
+            <hr> ${fileRefPresentation}`;
          }
 
       }

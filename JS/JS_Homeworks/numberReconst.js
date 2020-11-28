@@ -15,12 +15,13 @@ function numberReconst() {
    return function () {
       if (numberInputed.length > 1 && lastDigit != 0) {
          numberReconst = +(lastDigit + firstPartOfNumber);
-      }
-      else {
+      
+      } else {
          numberReconst = numberInputed;
       }
 
-      let result = `<h3>The inputed number is: ${numberInputed} <br>and the number after reconstitution is: ${numberReconst} </h3><hr> ${fileRefPresentation}`;
+      let result = `<h3>The inputed number is: ${numberInputed} <br>
+      and the number after reconstitution is: ${numberReconst} </h3><hr> ${fileRefPresentation}`;
 
       return result;
 

@@ -11,7 +11,8 @@ function addSuffixLy() {
 
    return function () {
       let newWord = someWord + "ly";
-      let result = `<h3>Your have inputed the word: "${someWord}" <br> So, the new word with the suffix "ly" is: ${newWord} </h3><hr> ${fileRefPresentation}`;
+      let result = `<h3>Your have inputed the word: "${someWord}" <br> 
+      So, the new word with the suffix "ly" is: ${newWord} </h3><hr> ${fileRefPresentation}`;
       return result;
    }
 

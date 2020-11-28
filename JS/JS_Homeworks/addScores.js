@@ -25,7 +25,8 @@ function addScores() {
                break;
             }
          }
-         let result = `<h3>Your have inputed gamer: ${winner} <br> So, the updated scores are: ${JSON.stringify(gamers)} </h3><hr> ${fileRefPresentation}`;
+         let result = `<h3>Your have inputed gamer: ${winner} <br>
+         So, the updated scores are: ${JSON.stringify(gamers)} </h3><hr> ${fileRefPresentation}`;
          return result;
       }
    }

@@ -32,7 +32,8 @@ function getStrDuplicates() {
          sumUpDuplicates += " (" + strDuplicates[i] + ":" + countOfDuplicates[i] + "-units) ";
       }
 
-      let result = `<h4>The initial string is: "${someStr}". <br>Here is the sumUp of the duplicates:<br> ${sumUpDuplicates} </h4><hr> ${fileRefPresentation}`;
+      let result = `<h4>The initial string is: "${someStr}". <br>
+      Here is the sumUp of the duplicates:<br> ${sumUpDuplicates} </h4><hr> ${fileRefPresentation}`;
 
       return result;
 

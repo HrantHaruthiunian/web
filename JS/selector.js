@@ -52,6 +52,9 @@ function selectorTopic() {
          case "scores":
             return addScores()();
             break;
+         case "viselica":
+            return gameViselica();
+            break;
 
          default:
             return "We don't have this homework";

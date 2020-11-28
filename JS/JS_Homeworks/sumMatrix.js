@@ -18,7 +18,8 @@ function sumMatrix() {
          }
       }
 
-      let result = `<h3>The elements of the matrix are: ${JSON.stringify(matrix)} <br>and the sum of elements is: ${sumOfElements}</h3><hr> ${fileRefPresentation}`;
+      let result = `<h3>The elements of the matrix are: ${JSON.stringify(matrix)} <br>
+      nd the sum of elements is: ${sumOfElements}</h3><hr> ${fileRefPresentation}`;
 
       return result;
 

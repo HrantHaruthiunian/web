@@ -16,11 +16,10 @@ function printX() {
       for (let i = 0; i <= matrixDim; i++) {
          for (let j = 0; j <= matrixDim; j++) {
 
-            if (i === j || j===matrixDim-i) {
+            if (i === j || j === matrixDim - i) {
 
                iconMatrix += icon;
-            }
-            else {
+            } else {
                iconMatrix += "-";
             }
          }
