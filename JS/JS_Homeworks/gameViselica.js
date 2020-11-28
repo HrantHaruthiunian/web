@@ -7,12 +7,14 @@ function gameViselica() {
    if (startGame) {
       alert("The game 'Viselica' is started. You should find the city name by typing any letter");
 
-      let cities = ["Yerevan", "Moscou", "Paris", "London", "Stepanakert", "Bern", "Washington", "Brazil", "Tbilisi", "Tokyo"];
+      let cities = ["yerevan", "moscow", "paris", "london", "stepanakert", "bern", "washington", "brazil", "tbilisi", "tokyo"];
       let randomCity = cities[Math.floor(Math.random() * cities.length)];
-      let letter = "";
 
-      let findedLetters = [];
+
       let remainingLetters = randomCity.length;
+      let trys = 20;
+      let remainingTry = randomCity.length * trys;
+
 
       let resultCity = [];
       for (let i = 0; i < randomCity.length; i++) {
@@ -20,45 +22,70 @@ function gameViselica() {
       };
 
 
-      
 
-      while (remainingLetters > 0) {
-        
+
+      while (remainingLetters > 0 && remainingTry > 0) {
+
          let letter = prompt(` The name of randomly created city has ${randomCity.length} letters as follows: 
-           ${resultCity} . 
-         Угадайте букву или нажмите "cancel" для выхода из игры.`);
+           ${resultCity} . Hint: ${randomCity}
+         Угадайте букву или нажмите "cancel" для выхода из игры. Количество попыток: ${remainingTry}`);
+
+         if (letter !== null) { letter = letter.toLowerCase() };
 
          if (letter === null) {
-            break;
+            return "Thank You, you can play this game in future."
 
          } else if (letter.length > 1) {
-            alert("Пожалуйста, введите только одну букву.");
+            remainingTry--;
+            alert(`Пожалуйста, введите только одну букву. 
+            Количество оставшейся попыток: ${remainingTry} `);
 
          } else if (letter == "") {
-            alert("Пожалуйста, введите букву.");
+            remainingTry--;
+            alert(`Пожалуйста, введите букву. 
+            Количество оставшейся попыток: ${remainingTry} `);
 
          } else {
-            let state = remainingLetters;
+
+            remainingTry--;
+            let remainingLettersState = remainingLetters;
+            let repetitionOfLetter = false;
+
             for (i = 0; i < randomCity.length; i++) {
-               
-               if (randomCity[i] == letter) {
+
+               if (randomCity[i] == letter && i == 0 && letter !== resultCity[i]) {
+                  resultCity[i] = letter.toUpperCase();
+                  remainingLetters--;
+
+               } else if (randomCity[i] == letter && letter !== resultCity[i]) {
                   resultCity[i] = letter;
                   remainingLetters--;
+
+               } else if (letter == resultCity[i]) {
+                  alert(`Вы уже угадали букву: "${letter}". Угадайте другую букву.
+                        Количество оставшейся попыток: ${remainingTry}`);
+                        repetitionOfLetter = true;
+                        break;
                }
 
             }
-            if(state == remainingLetters ) {
-               alert (`Увы, в этом слове нет буквы: "${letter}". Угадайте букву снова.`)
+
+
+
+            if (remainingLettersState - remainingLetters == 0 && !repetitionOfLetter ) {
+               alert(`Увы, в этом слове нет буквы: "${letter}". Угадайте букву снова.
+                        Количество оставшейся попыток: ${remainingTry}`);
             }
 
          }
-        
+
       };
 
       if (remainingLetters == 0) {
-         return `Отлично! Было загадано слово: ${resultCity.join("")}. Спасибо за игру !`;
+         return `Отлично! Было загадано слово: ${resultCity.join("")} из ${randomCity.length * trys - remainingTry} попыток. Спасибо за игру !`;
       } else {
-         return `Your result is not final as follows: ${resultCity.join("")}. Mabe will play in future. Thank you !`;
+         return `Your result is not final as follows: ${resultCity.join("")}. 
+         The city name was ${randomCity}. Mabe will play in future. Thank you !`;
       }
 
 
