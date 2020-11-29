@@ -11,8 +11,8 @@ function gameViselica() {
       let randomCity = cities[Math.floor(Math.random() * cities.length)];
 
 
-      let remainingLetters = randomCity.length;
-      let trys = 20;
+      let currentRemainingLetters = randomCity.length;
+      let trys = 2;
       let remainingTry = randomCity.length * trys;
 
 
@@ -24,7 +24,7 @@ function gameViselica() {
 
 
 
-      while (remainingLetters > 0 && remainingTry > 0) {
+      while (currentRemainingLetters > 0 && remainingTry > 0) {
 
          let letter = prompt(` The name of randomly created city has ${randomCity.length} letters as follows: 
            ${resultCity} . Hint: ${randomCity}
@@ -46,45 +46,62 @@ function gameViselica() {
             Количество оставшейся попыток: ${remainingTry} `);
 
          } else {
-
             remainingTry--;
-            let remainingLettersState = remainingLetters;
-            let repetitionOfLetter = false;
 
-            for (i = 0; i < randomCity.length; i++) {
+            let isRemainedLettersSame = true;
+            let isLetterGuessed = false;
+            let isSameLetterGuessed = false;
 
-               if (randomCity[i] == letter && i == 0 && letter !== resultCity[i]) {
-                  resultCity[i] = letter.toUpperCase();
-                  remainingLetters--;
 
-               } else if (randomCity[i] == letter && letter !== resultCity[i]) {
-                  resultCity[i] = letter;
-                  remainingLetters--;
 
-               } else if (letter == resultCity[i]) {
-                  alert(`Вы уже угадали букву: "${letter}". Угадайте другую букву.
-                        Количество оставшейся попыток: ${remainingTry}`);
-                        repetitionOfLetter = true;
+            for (let i = 0; i < randomCity.length; i++) {
+
+               if (letter == randomCity[i]) {
+
+                  switch (letter !== resultCity[i]) {
+
+                     case true:
+                        resultCity[i] = letter;
+                        isLetterGuessed = true;
+                        currentRemainingLetters--;
+                        isRemainedLettersSame = false;
                         break;
+
+                     case false:
+                        isSameLetterGuessed = true;
+                        break;
+                  }
+
                }
 
             }
 
-
-
-            if (remainingLettersState - remainingLetters == 0 && !repetitionOfLetter ) {
-               alert(`Увы, в этом слове нет буквы: "${letter}". Угадайте букву снова.
-                        Количество оставшейся попыток: ${remainingTry}`);
+            if (isLetterGuessed) {
+               alert(`Правильно !!! Есть букво: "${letter}". Угадайте другую букву.
+                     Количество оставшейся попыток: ${remainingTry}`);
+            }
+            if (isSameLetterGuessed) {
+               alert(`Вы уже угадали букву: "${letter}". Угадайте другую букву.
+                     Количество оставшейся попыток: ${remainingTry}`);
+            } else if (isRemainedLettersSame) {
+               alert(`Увы, в этом слове нет буквы: "${letter}". Угадайте другую букву.
+                     Количество оставшейся попыток: ${remainingTry}`);
             }
 
          }
 
       };
-
-      if (remainingLetters == 0) {
-         return `Отлично! Было загадано слово: ${resultCity.join("")} из ${randomCity.length * trys - remainingTry} попыток. Спасибо за игру !`;
+      
+      let resultCityCorrected = [];
+      resultCityCorrected[0] = resultCity[0].toUpperCase();
+      for (let i = 1; i < resultCity.length; i++) {
+         resultCityCorrected.push(resultCity[i]);
+      }
+     
+      if (currentRemainingLetters == 0) {
+         return `Отлично! Было загадано слово: ${resultCityCorrected.join("")} из ${randomCity.length * trys - remainingTry} попыток. Спасибо за игру !`;
       } else {
-         return `Your result is not final as follows: ${resultCity.join("")}. 
+         return `Your result is not final as follows: ${resultCityCorrected.join("")} 
          The city name was ${randomCity}. Mabe will play in future. Thank you !`;
       }
 
