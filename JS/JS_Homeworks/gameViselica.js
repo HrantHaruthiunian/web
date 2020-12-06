@@ -1,69 +1,56 @@
 function gameViselica() {
+   let gamerName = prompt(`Բարև Ձեզ: Ես ANDROID-ն եմ: Իսկ ինչ է Ձեր անունը ?`);
 
-
-   let startGame = confirm("whould you like to start the game ?");
-
+   let startGame = confirm(`Շատ լավ ${gamerName} ջան, ուրախ եմ ծանոթանալու համար: Դու ցանկանում ես սկսել խաղը ? եթե այո, ապա սեղմիր ՛ok՛ կոճակը:`);
+   let cities = ["հրանտ", "նարեկ", "ռոզա", "նատա", "այդա", "արմինե", "աբո", "զավեն"];
+   let food = ['գաթա', 'բանան', 'նուռ', 'խնձոր', 'ելակով տորթ', 'սերկեվիլ', 'մի բան', 'ինչ ուզում ես'];
+   let randomFood = getRandomItem(food);
 
    if (startGame) {
-      alert("The game 'Viselica' is started. You should find the city name by typing any letter");
 
-      let cities = ["yerevan", "moscow", "paris", "london", "stepanakert", "bern", "washington", "brazil", "tbilisi", "tokyo"];
-      let randomCity = cities[Math.floor(Math.random() * cities.length)];
+      alert(`Ապրեես ${gamerName}: Խաղը սկսված է: Հիմա ես կմտապահեմ քո հարազատներից մեկի անունը իսկ դու կփորձես գուշակել:`);
+      let randomCity = getRandomItem(cities);
+      
+      let answerArray = getArrayForAnswer(randomCity);
+      let givenAttempts = getInitialАttempts(randomCity, 2);
 
+      let remainingAttempts = givenAttempts; // for start of the game they are the same.
+      let nonGuessedLetters = randomCity.length; // for start of the game they are the same.
 
-      let currentRemainingLetters = randomCity.length;
-      let trys = 2;
-      let remainingTry = randomCity.length * trys;
+      while (remainingAttempts > 0 && nonGuessedLetters > 0) {
 
+         let letter = getLetterFromDialog(gamerName, answerArray, remainingAttempts, randomCity);
 
-      let resultCity = [];
-      for (let i = 0; i < randomCity.length; i++) {
-         resultCity.push(" ___ ")
-      };
+         if (letter === null) { return `Շատ լավ, ${gamerName}: Եթե չես ցանկանում շարունակել խաղը, կարող ես այն սկսել հետո:` }
+         else { letter = letter.toLowerCase() };
 
-
-
-
-      while (currentRemainingLetters > 0 && remainingTry > 0) {
-
-         let letter = prompt(` The name of randomly created city has ${randomCity.length} letters as follows: 
-           ${resultCity} . Hint: ${randomCity}
-         Угадайте букву или нажмите "cancel" для выхода из игры. Количество попыток: ${remainingTry}`);
-
-         if (letter !== null) { letter = letter.toLowerCase() };
-
-         if (letter === null) {
-            return "Thank You, you can play this game in future."
-
-         } else if (letter.length > 1) {
-            remainingTry--;
-            alert(`Пожалуйста, введите только одну букву. 
-            Количество оставшейся попыток: ${remainingTry} `);
+         if (letter.length > 1) {
+            remainingAttempts--;
+            alert(`${gamerName}, խաղի կանոնների համաձայն դու պետք է մեկ տառ մուտքագրես, այլ ոչ թե միա քանի: 
+            Ասեմ նաև, որ քո գուշակելու հնարավորությունը նվազեց մեկով, այն այժմ ${remainingAttempts} է: Ուշադիր եղիր և կրկին տառ գուշակիր:`);
 
          } else if (letter == "") {
-            remainingTry--;
-            alert(`Пожалуйста, введите букву. 
-            Количество оставшейся попыток: ${remainingTry} `);
+            remainingAttempts--;
+            alert(`${gamerName}, մոռացար տառը մուտքագրես: Ուշադիր եղիր ախր: Հո սոված չես մնացել ??? Գնա ${randomFood} կեր:
+            Ասեմ նաև, որ քո գուշակելու հնարավորությունը նվազեց ևս մեկով, այն այժմ ${remainingAttempts} է: Կրկին փորձիր:`);
 
          } else {
-            remainingTry--;
+            remainingAttempts--;
 
             let isRemainedLettersSame = true;
             let isLetterGuessed = false;
             let isSameLetterGuessed = false;
 
-
-
             for (let i = 0; i < randomCity.length; i++) {
 
                if (letter == randomCity[i]) {
 
-                  switch (letter !== resultCity[i]) {
+                  switch (letter !== answerArray[i]) {
 
                      case true:
-                        resultCity[i] = letter;
+                        answerArray[i] = letter;
                         isLetterGuessed = true;
-                        currentRemainingLetters--;
+                        nonGuessedLetters--;
                         isRemainedLettersSame = false;
                         break;
 
@@ -77,34 +64,66 @@ function gameViselica() {
             }
 
             if (isLetterGuessed) {
-               alert(`Правильно !!! Есть букво: "${letter}". Угадайте другую букву.
-                     Количество оставшейся попыток: ${remainingTry}`);
+               alert(`Ճիշտ էէէէ, ապրեեես: Կա "${letter}" տառը:
+               Հիմա գուշակիր հաջորդ տառը: 
+               Հաշվի առ, որ քեզ մնացել է կատարել գուշակման ${remainingAttempts}  փորձ:`);
             }
             if (isSameLetterGuessed) {
-               alert(`Вы уже угадали букву: "${letter}". Угадайте другую букву.
-                     Количество оставшейся попыток: ${remainingTry}`);
+               alert(`${gamerName} ջան ուշադիր եղիր, դու արդեն գուշակել էիր "${letter}" տառը: 
+               Հիմա գուշակիր հաջորդ տառը: Բայց մինչ այդ գնա ${randomFood} կեր, որ ուշադրությունդ լավանա:
+               Հաշվի առ, որ քեզ մնում է կատարել գուշակման ${remainingAttempts}  փորձ`);
             } else if (isRemainedLettersSame) {
-               alert(`Увы, в этом слове нет буквы: "${letter}". Угадайте другую букву.
-                     Количество оставшейся попыток: ${remainingTry}`);
+               alert(`Ափսոոս, անվան մեջ չկա "${letter}" տառը: Հիմա գուշակիր հաջորդ տառը: 
+                  Գնա ${randomFood} կեր ուժեղացի, որ չսխալվես հանկարծ:
+                  Հաշվի առ, որ քեզ մնացել է կատարել գուշակման ${ remainingAttempts }  փորձ:`);
             }
 
          }
 
       };
-      
+
+      return showAnswerAndCongratulatePlayer(gamerName, randomCity, answerArray, givenAttempts, remainingAttempts, nonGuessedLetters, randomFood);
+
+   } else { return `Շատ լավ, ${gamerName}: Եթե չես ցանկանում շարունակել խաղը, կարող ես այն սկսել հետո: Գնա ${randomFood} կեր:` };
+
+   function getRandomItem(arrayOfItems) {
+      return arrayOfItems[Math.floor(Math.random() * arrayOfItems.length)];
+   };
+
+   function getArrayForAnswer(nameOfCity) {
+      let answerArray = [];
+      for (let i = 0; i < nameOfCity.length; i++) {
+         answerArray.push(" ___ ")
+      };
+      return answerArray;
+   };
+
+   function getInitialАttempts(givenCityName, qoefficient) {
+      return givenCityName.length * qoefficient;
+   }
+
+   function getLetterFromDialog(gamerName, answerArray, remainingTry, hint) {
+      return prompt(` ${gamerName} ջան, ես մտապահել եմ քո հարազատներից մեկի անունը, որ բաղկացած է  ${answerArray.length} տառից:
+                          ${answerArray}  : 
+         Խնդրում եմ գուշակիր տառ: Դու ունես գուշակելու ${remainingTry} հնարավորություն`);
+   };
+
+   function showAnswerAndCongratulatePlayer(gamerName, randomCity, answerArray, givenАttempts, remainingAttempts, nonGuessedLetters, food) {
+
       let resultCityCorrected = [];
-      resultCityCorrected[0] = resultCity[0].toUpperCase();
-      for (let i = 1; i < resultCity.length; i++) {
-         resultCityCorrected.push(resultCity[i]);
+      resultCityCorrected[0] = answerArray[0].toUpperCase();
+      for (let i = 1; i < answerArray.length; i++) {
+         resultCityCorrected.push(answerArray[i]);
       }
-     
-      if (currentRemainingLetters == 0) {
-         return `Отлично! Было загадано слово: ${resultCityCorrected.join("")} из ${randomCity.length * trys - remainingTry} попыток. Спасибо за игру !`;
+
+      if (nonGuessedLetters == 0) {
+         return `${gamerName} բայց դու ինչ տիպն ես: <br>
+         Փաստորեն կարողացար գուշակել  ${resultCityCorrected.join("")} անունը ընդամենը ${givenАttempts - remainingAttempts} փորձից:
+         Շատ ապրես դու !!! Որպես մրցանակ կարող ես ուտել ${food}:`;
       } else {
-         return `Your result is not final as follows: ${resultCityCorrected.join("")} 
-         The city name was ${randomCity}. Mabe will play in future. Thank you !`;
+         return `Անվան գուշակությունը, ցավոք, կիսատ մնաց ահա այսպես  ${resultCityCorrected.join("")}:<br>
+         Իմ մտապահած անունը  ${randomCity}ն էր: Դե լավ ոչինչ: Հիմա գնա ${food} կեր, որ ուժեղանաս ու գաս, հաղթես:`;
       }
+   };
 
-
-   } else { return "Thank You, you can play this game in future." };
 }
