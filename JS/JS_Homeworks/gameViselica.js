@@ -5,12 +5,13 @@ function gameViselica() {
    let cities = ["հրանտ", "նարեկ", "ռոզա", "նատա", "այդա", "արմինե", "աբո", "զավեն"];
    let food = ['գաթա', 'բանան', 'նուռ', 'խնձոր', 'ելակով տորթ', 'սերկեվիլ', 'մի բան', 'ինչ ուզում ես'];
    let randomFood = getRandomItem(food);
+   export { randomFood };
 
    if (startGame) {
 
       alert(`Ապրեես ${gamerName}: Խաղը սկսված է: Հիմա ես կմտապահեմ քո հարազատներից մեկի անունը իսկ դու կփորձես գուշակել:`);
       let randomCity = getRandomItem(cities);
-      
+
       let answerArray = getArrayForAnswer(randomCity);
       let givenAttempts = getInitialАttempts(randomCity, 2);
 
@@ -75,7 +76,7 @@ function gameViselica() {
             } else if (isRemainedLettersSame) {
                alert(`Ափսոոս, անվան մեջ չկա "${letter}" տառը: Հիմա գուշակիր հաջորդ տառը: 
                   Գնա ${randomFood} կեր ուժեղացի, որ չսխալվես հանկարծ:
-                  Հաշվի առ, որ քեզ մնացել է կատարել գուշակման ${ remainingAttempts }  փորձ:`);
+                  Հաշվի առ, որ քեզ մնացել է կատարել գուշակման ${remainingAttempts}  փորձ:`);
             }
 
          }

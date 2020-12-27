@@ -1,6 +1,6 @@
 function selectorTopic() {
-   let topic = document.getElementById("selectTopic").selectedIndex;
-   let topicValue = document.getElementsByTagName("option")[topic].value;
+   let topicIndex = document.getElementById("selectTopic").selectedIndex;
+   let topicValue = document.getElementsByTagName("option")[topicIndex].value;
 
    document.getElementById("homework").innerHTML = getHomework(topicValue);
 
@@ -55,6 +55,13 @@ function selectorTopic() {
          case "viselica":
             return gameViselica();
             break;
+         case "startPython":
+            return gamePythonStart();
+            break;
+         case "startKlad":
+            return gameKladStart();
+            break;
+
 
          default:
             return "We don't have this homework";

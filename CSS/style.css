@@ -1,0 +1,15 @@
+#python {
+  width: 100px;
+  height: 80px;
+  -ms-transform: rotate(-90deg); 
+  transform: rotate(0deg);
+}
+
+.map {
+  width: 600px;
+  height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}

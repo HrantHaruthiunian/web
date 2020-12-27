@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1>Python Game</h1>
+    <h3>Հեղինակ՝ Հրանտ Հարությունյան</h3>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+    <hr>
+    <table align="center">
+        <tr>
+            <td><button type="button" onclick="setPythonName()">Սկսել խաղը</button></td>
+            <td>
+                <p id="p2"></p>
+            </td>
+            <td>
+                <p id="p3"></p>
+            </td>
+            <td>
+                <p id="p4"></p>
+            </td>
+
+
+        </tr>
+    </table>
+
+
+
+
+    <hr><img id="python" src="Files/python1.gif">
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <hr>
+
+    <table align="right">
+        <tr>
+            <td></td>
+            <td> <button type="button" onclick="pushUp()">վերև</button>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="pushLeft()">ձախ</button></td>
+            <td><button type="button" onclick="stopMoving()">STOP</button></td>
+            <td><button type="button" onclick="pushRight()">աջ</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> <button type="button" onclick="pushDown()">ներքև</button>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+
+
+    <script type="text/javascript" src="JS/JS_Homeworks/gamePython.js"></script>
+
+    <script>
+        $("h1").hide().fadeIn(2000);
+        $("h3").hide().fadeIn(2000);
+        $("#python").hide().fadeIn(2000);
+        $("button").hide().slideDown(1000);
+
+    </script>
+
+</body>
+
+</html>
