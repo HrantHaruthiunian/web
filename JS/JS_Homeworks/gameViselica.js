@@ -5,7 +5,7 @@ function gameViselica() {
    let cities = ["հրանտ", "նարեկ", "ռոզա", "նատա", "այդա", "արմինե", "աբո", "զավեն"];
    let food = ['գաթա', 'բանան', 'նուռ', 'խնձոր', 'ելակով տորթ', 'սերկեվիլ', 'մի բան', 'ինչ ուզում ես'];
    let randomFood = getRandomItem(food);
-   export { randomFood };
+
 
    if (startGame) {
 

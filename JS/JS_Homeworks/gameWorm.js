@@ -8,21 +8,21 @@ let bustCount = 0;
 let gamer = "";
 
 
-function setPythonName() {
+function setWormName() {
    gamer = prompt("Ինչ է քո անունը ?");
-   viewPython();
+   viewWorm();
 }
 
 
-function viewPython() {
+function viewWorm() {
 
    document.getElementById("p2").innerHTML = `,  <b>Գլխավոր ճիճու՝</b> ${gamer}`;
    document.getElementById("p3").innerHTML = `,  <b>Ճիճուի արագությունը՝</b> ${Math.round((1000 / temp), 0)}`;
    document.getElementById("p4").innerHTML = `,  <b>Արագության մակարդակը՝</b> ${bustCount}`;
 }
 
-function resetPythonCoordinates() {
-   $("#python").offset({
+function resetWormCoordinates() {
+   $("#worm").offset({
       left: leftOffset,
       top: topOffset
    });
@@ -30,22 +30,22 @@ function resetPythonCoordinates() {
 
 function moveUp() {
    topOffset -= step;
-   resetPythonCoordinates();
+   resetWormCoordinates();
 }
 
 function moveDown() {
    topOffset += step;
-   resetPythonCoordinates();
+   resetWormCoordinates();
 }
 
 function moveLeft() {
    leftOffset -= step;
-   resetPythonCoordinates();
+   resetWormCoordinates();
 }
 
 function moveRight() {
    leftOffset += step;
-   resetPythonCoordinates();
+   resetWormCoordinates();
 }
 
 function move() {
@@ -83,13 +83,13 @@ function accelerate() {
    if (temp > 5) {
       temp -= step;
       move();
-      viewPython();
+      viewWorm();
    } else if (temp <= 5) {
       clearInterval(moveIntervalId);
       alert(`Ապրես ${gamer}, դու հաղթեցիր: Գնա ${null} կեր:`);
       temp = 100;
       move();
-      viewPython();
+      viewWorm();
    }
 }
 
@@ -98,17 +98,17 @@ function decelerate() {
    if (temp <= 500) {
       temp += step;
       move();
-      viewPython();
+      viewWorm();
    } else if (temp > 500) {
       clearInterval(moveIntervalId);
       alert("Անչափ դանդաղ է: Պետք է արագացնեք: !!!");
       temp = 500;
       move();
-      viewPython();
+      viewWorm();
    }
 }
 
-$("#python").click(accelerate);
+$("#worm").click(accelerate);
 
 
 
@@ -121,19 +121,19 @@ window.addEventListener("keydown", function (event) {
    switch (event.key) {
       case "ArrowDown":
          pushDown();
-         document.getElementById("python").style.transform = "rotate(90deg)";
+         document.getElementById("worm").style.transform = "rotate(90deg)";
          break;
       case "ArrowUp":
          pushUp();
-         document.getElementById("python").style.transform = "rotate(-90deg)";
+         document.getElementById("worm").style.transform = "rotate(-90deg)";
          break;
       case "ArrowLeft":
          pushLeft();
-         document.getElementById("python").style.transform = "rotate(-180deg)";
+         document.getElementById("worm").style.transform = "rotate(-180deg)";
          break;
       case "ArrowRight":
          pushRight();
-         document.getElementById("python").style.transform = "rotate(0deg)";
+         document.getElementById("worm").style.transform = "rotate(0deg)";
          break;
       case "Enter":
          move();

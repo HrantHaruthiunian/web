@@ -55,11 +55,14 @@ function selectorTopic() {
          case "viselica":
             return gameViselica();
             break;
-         case "startPython":
-            return gamePythonStart();
+         case "startWorm":
+            return gameWormStart();
             break;
          case "startKlad":
             return gameKladStart();
+            break;
+         case "objects":
+            return objects();
             break;
 
 

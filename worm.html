@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <h1>Python Game</h1>
+    <h1>Worm Game</h1>
     <h3>Հեղինակ՝ Հրանտ Հարությունյան</h3>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -16,7 +16,7 @@
     <hr>
     <table align="center">
         <tr>
-            <td><button type="button" onclick="setPythonName()">Սկսել խաղը</button></td>
+            <td><button type="button" onclick="setWormName()">Սկսել խաղը</button></td>
             <td>
                 <p id="p2"></p>
             </td>
@@ -34,9 +34,9 @@
 
 
 
-    <hr><img id="python" src="Files/python1.gif">
+    <hr><img id="worm" src="Files/worm1.gif">
 
-
+    <img id="map2" class="map" src="Files/treasuremap.png">
 
 
 
@@ -70,12 +70,12 @@
     <hr>
 
 
-    <script type="text/javascript" src="JS/JS_Homeworks/gamePython.js"></script>
+    <script type="text/javascript" src="JS/JS_Homeworks/gameWorm.js"></script>
 
     <script>
         $("h1").hide().fadeIn(2000);
         $("h3").hide().fadeIn(2000);
-        $("#python").hide().fadeIn(2000);
+        $("#worm").hide().fadeIn(2000);
         $("button").hide().slideDown(1000);
 
     </script>

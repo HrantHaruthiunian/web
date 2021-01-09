@@ -5,38 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <h1>Klad Game</h1>
-    <h3>Հեղինակ՝ Հրանտ Հարությունյան</h3>
+    <h1>Klad Game. Անտառում կա թաքնված գանձ: Փորձիր գտնել այն:</h1>
+    <button type="button" onClick="window.location.reload()">Վերսկսել խաղը</button>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/style.css">
+
+
 </head>
 
 <body>
     <hr>
-    <table>
+    <table align="center">
         <tr>
-            <td><button type="button" onclick="getCoordinates()">Սկսել խաղը</button></td>
             <td>
-                <p id="k2">Գտիր թաքնված գանձը</p>
+                <p id="response">Խաղի ցուցանիշներ</p>
             </td>
+
+        </tr>
+        <tr>
             <td>
-                <p id="k3">a</p>
+                <p id="hint">Հուշում</p>
             </td>
-            <td>
-                <p id="k4">b</p>
-            </td>
+
         </tr>
     </table>
     <hr>
     <img id="map" class="map" src="Files/treasuremap.png">
     <hr>
+
+
     <script type="text/javascript" src="JS/JS_Homeworks/gameKlad.js"></script>
 
     <script>
         $("h1").hide().fadeIn(2000);
-        $("h3").hide().fadeIn(2000);
-        $("#klad").hide().slideDown(2000);
+        $("#map").hide().slideDown(2000);
+        $("#response").hide().slideDown(2000);
+        $("#hint").hide().slideDown(2000);
+
     </script>
 
 </body>
