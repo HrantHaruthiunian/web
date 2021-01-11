@@ -16,7 +16,7 @@
     <hr>
     <table align="center">
         <tr>
-            <td><button type="button" onclick="setWormName()">Սկսել խաղը</button></td>
+            <td><button type="button" onclick="new Worm()"> Սկսել խաղը</button></td>
             <td>
                 <p id="p2"></p>
             </td>
@@ -47,18 +47,18 @@
     <table align="right">
         <tr>
             <td></td>
-            <td> <button type="button" onclick="pushUp()">վերև</button>
+            <td> <button type="button" onclick="worm1.movingUp()">վերև</button>
             </td>
             <td></td>
         </tr>
         <tr>
-            <td><button type="button" onclick="pushLeft()">ձախ</button></td>
-            <td><button type="button" onclick="stopMoving()">STOP</button></td>
-            <td><button type="button" onclick="pushRight()">աջ</button></td>
+            <td><button type="button" onclick="worm1.movingLeft()">ձախ</button></td>
+            <td><button type="button" onclick="worm1.stopMoving()">STOP</button></td>
+            <td><button type="button" onclick="worm1.movingRight()">աջ</button></td>
         </tr>
         <tr>
             <td></td>
-            <td> <button type="button" onclick="pushDown()">ներքև</button>
+            <td> <button type="button" onclick="worm1.movingDown()">ներքև</button>
             </td>
             <td></td>
         </tr>
