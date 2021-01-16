@@ -64,6 +64,9 @@ function selectorTopic() {
          case "objects":
             return objects();
             break;
+         case "canvas":
+            return canvasStart();
+            break;
 
 
          default:
