@@ -67,6 +67,15 @@ function selectorTopic() {
          case "canvas":
             return canvasStart();
             break;
+         case "ball":
+            return ballStart();
+            break;
+         case "keyboard":
+            return keyboardStart();
+            break;
+         case "snake":
+            return snakeStart();
+            break;
 
 
          default:

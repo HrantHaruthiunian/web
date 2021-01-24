@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Game snake</title>
+   <h1>Game snake</h1>
+
+   <div align="center">
+      <button type="button" onClick="window.location.reload()">Վերսկսել խաղը</button>
+   </div>
+
+   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+   <script type="text/javascript" src="JS/JS_Homeworks/snake.js"></script>
+
+
+   <div align="center">
+      <canvas id="snake" height="500" width="700"></canvas>
+   </div>
+   <script>
+      $("h1").hide().fadeIn(2000);
+      gameSnake();
+   </script>
+
+</body>
+
+</html>

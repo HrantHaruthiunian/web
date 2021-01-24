@@ -56,6 +56,6 @@ function getDistanceHint() {
    }
 };
 
-function playAudio() {
-   new Audio("Files\sound.mp3").play();
-}
+//function playAudio() {
+//   new Audio("Files\sound.mp3").play();
+//}

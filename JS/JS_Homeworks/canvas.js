@@ -3,7 +3,7 @@ function drawCanvas() {
    let element = document.getElementById("canvasID");
    let elementContext2d = element.getContext("2d");
 
-   elementContext2d.lineWidth = 2;
+   elementContext2d.lineWidth = 8;
    elementContext2d.fillStyle = "chocolate";
    elementContext2d.strokeStyle = "chocolate";
    elementContext2d.strokeRect(0, 0, 480, 480);
@@ -20,7 +20,7 @@ function drawCanvas() {
 
    function drawX() {
       elementContext2d.strokeStyle = "Turquoise";
-      elementContext2d.lineWidth = 4;
+      elementContext2d.lineWidth = 10;
 
       elementContext2d.beginPath();
       elementContext2d.moveTo(0, 0);
@@ -59,11 +59,11 @@ function drawCanvas() {
    drawTriangleEmpty();
 
    function drowArc() {
-       elementContext2d.strokeStyle = "black";
+      elementContext2d.strokeStyle = "black";
       elementContext2d.lineWidth = 4;
 
       elementContext2d.beginPath();
-      elementContext2d.arc(300, 60, 50, 0, Math.PI*3/2, false);
+      elementContext2d.arc(300, 60, 50, 0, Math.PI * 3 / 2, false);
 
       elementContext2d.stroke();
    }
@@ -71,20 +71,16 @@ function drawCanvas() {
    drowArc();
 
    function drowFilledCircle() {
-     elementContext2d.fillStyle = "purple";
-      
+      elementContext2d.fillStyle = "purple";
+
       elementContext2d.beginPath();
-      elementContext2d.arc(420, 60, 50, 0, Math.PI*2, false);
+      elementContext2d.arc(420, 60, 50, 0, Math.PI * 2, false);
 
       elementContext2d.fill();
 
    }
 
    drowFilledCircle();
-
-
-
-
 
 
 }

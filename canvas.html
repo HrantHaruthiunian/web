@@ -14,8 +14,14 @@
 
 <body>
     <script type="text/javascript" src="JS/JS_Homeworks/canvas.js"></script>
+    <script type="text/javascript" src="JS/JS_Homeworks/canvasLines.js"></script>
+    <script type="text/javascript" src="JS/JS_Homeworks/canvasAnimation.js"></script>
 
     <canvas id="canvasID" height="480" width="480"></canvas>
+    <canvas id="canvasLinesID" height="480" width="480"></canvas>
+    <canvas id="canvasAnimationID" height="480" width="480"></canvas>
+
+
 
 
 
@@ -24,6 +30,9 @@
     <script>
         $("h1").hide().fadeIn(2000);
         drawCanvas();
+        drawLines()();
+        drawByMouse();
+        canvasAnimation();
 
     </script>
 
