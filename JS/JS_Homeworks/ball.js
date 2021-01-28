@@ -8,7 +8,8 @@ function ballAnimation() {
    let height = canvasElement.height;
    let colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Grey"];
    let colorsCount = [0, 0, 0, 0, 0, 0, 0];
-   let ballRadius = 30;
+   let ballRadius = 10;
+   let ballsQuantity = 150;
 
    function Ball() {
       this.x = width / 2;
@@ -45,7 +46,7 @@ function ballAnimation() {
 
 
    let balls = [];
-   let ballsQuantity = 150;
+
 
    for (let i = 0; i < ballsQuantity; i++) {
       balls[i] = new Ball();

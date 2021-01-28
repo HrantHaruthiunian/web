@@ -11,9 +11,17 @@ function gameSnake() {
    let heightInBlocks = height / blockSize;
 
    let score = 0;
+   let speed = 250;
+
+   let gamer = "test"; //prompt("Ինչ է քո անունը ?");
 
    let food = ['գաթա', 'բանան', 'նուռ', 'խնձոր', 'ելակով տորթ', 'սերկևիլ', 'մի բան', 'ինչ ուզում ես', 'քո սիրած բանը', 'ու ոչ մի բան մի', 'ջուր խմի ու մի', 'ճաշ', 'խորոված', 'մսով փլավ', 'ծամոն'];
+
+   let colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Grey"];
+   let randomColor = [];
+
    let randomFood = getRandomItem(food);
+
    function getRandomItem(arrayOfItems) {
       return arrayOfItems[Math.floor(Math.random() * arrayOfItems.length)];
    };
@@ -38,7 +46,7 @@ function gameSnake() {
       ctxElement.fillStyle = "black";
       ctxElement.textAlign = "left";
       ctxElement.textBaseLine = "top";
-      ctxElement.fillText("Հաշիվը: " + score + ", Արագությունը: " + Math.floor(300 / speed(score)), 10, 23);
+      ctxElement.fillText("Հաշիվը: " + score + ", Արագությունը: " + speed, 10, 23);
    }
 
    function gameOver() {
@@ -47,7 +55,7 @@ function gameSnake() {
       ctxElement.fillStyle = "black";
       ctxElement.textAlign = "center";
       ctxElement.textBaseLine = "middle";
-      ctxElement.fillText("Նարեկ ջան, խաղն ավարտվեց:", width / 2, height / 2);
+      ctxElement.fillText(gamer + " ջան, խաղն ավարտվեց:", width / 2, height / 2);
       ctxElement.fillText("Գնա " + randomFood + " կեր:", width / 2, height / 2 + 30);
    }
 
@@ -92,24 +100,26 @@ function gameSnake() {
          new Block(6, 5),
          new Block(5, 5)
       ];
+
       this.direction = "right";
-      this.nextDirection = "right";
+
       this.draw = function () {
+
          for (let i = 0; i < this.segments.length; i++) {
             if (i == 0) {
                this.segments[i].drawSquare("Black");
-            } else if (i % 2 == 0) {
-               this.segments[i].drawSquare("Purple");
+            } else if (i >= this.segments.length - 2) {
+               this.segments[i].drawSquare("Gray");
             } else {
-               this.segments[i].drawSquare("gray");
+               this.segments[i].drawSquare(randomColor[randomColor.length - i - 1]);
             }
          }
+
       }
+
       this.move = function () {
          let head = this.segments[0];
          let newHead;
-
-         this.direction = this.nextDirection;
 
          if (this.direction === "right") {
             newHead = new Block(head.col + 1, head.row);
@@ -130,13 +140,13 @@ function gameSnake() {
 
          if (newHead.equal(apple.position)) {
             score++;
+            randomColor[score] = getRandomItem(colors);
             apple.move();
          } else {
             this.segments.pop();
          }
-
-
       }
+
       this.checkCollision = function (head) {
          let leftCollision = (head.col === 0);
          let topCollision = (head.row === 0);
@@ -155,6 +165,7 @@ function gameSnake() {
          return wallCollision || selfCollision;
 
       }
+
       this.setDirection = function (newDirection) {
 
          let contrDirection = (
@@ -166,26 +177,27 @@ function gameSnake() {
          if (contrDirection) {
             return;
          }
-         this.nextDirection = newDirection;
+         this.direction = newDirection;
       }
-
-
    }
 
    function Apple() {
       this.position = new Block(10, 10);
 
       this.draw = function () {
-         this.position.drawCircle("LimeGreen");
-
+         if (score == 0) {
+            randomColor[0] = "Green";
+            this.position.drawCircle(randomColor[0]);
+         }
+         this.position.drawCircle(randomColor[score]);
       }
+
       this.move = function () {
          let randomCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1;
          let randomRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;
          this.position = new Block(randomCol, randomRow);
       }
    }
-
 
    $("body").keydown(function (event) {
       let newDirection = directions[event.keyCode];
@@ -194,31 +206,15 @@ function gameSnake() {
       }
    });
 
-   let snake = new Snake();
    let apple = new Apple();
-
-   function speed(score) {
-      if (score < 5) {
-         return 100;
-      } else if (score > 2 && score <= 7) {
-         return 200;
-      } else if (score > 7 && score <= 9) {
-         return 100;
-      } else if (score > 9 && score <= 11) {
-         return 50;
-      } else if (score > 11 && score <= 13) {
-         return 10;
-      } else return 1;
-
-   }
+   let snake = new Snake();
 
    let intervalId = setInterval(function () {
       ctxElement.clearRect(0, 0, width, height);
+      drawBlock();
       drawScore();
+      apple.draw();
       snake.move();
       snake.draw();
-      apple.draw();
-      drawBlock();
-   }, speed(score));
-
+   }, speed);
 }
