@@ -1,8 +1,6 @@
 // Write a function to print X star pattern series using loop.
 
-
 function printX() {
-
 
    let thisFileName = "printX.js";
    let fileRefPresentation = `<i>For mor information please see the file <b>${thisFileName}</b></i>`;

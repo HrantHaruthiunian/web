@@ -1,4 +1,4 @@
-function gameSnake() {
+export function gameSnake() {
 
    let canvas = document.getElementById("snake");
    let ctxElement = canvas.getContext("2d");

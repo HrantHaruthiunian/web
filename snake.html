@@ -15,15 +15,15 @@
 </head>
 
 <body>
-   <script type="text/javascript" src="JS/JS_Homeworks/snake.js"></script>
-
 
    <div align="center">
       <canvas id="snake" height="300" width="400"></canvas>
    </div>
-   <script>
+
+   <script type="module">
       $("h1").hide().fadeIn(2000);
 
+      import { gameSnake } from './JS/JS_Homeworks/snake.js';
       gameSnake();
 
    </script>
