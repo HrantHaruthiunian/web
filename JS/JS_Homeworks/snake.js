@@ -1,4 +1,4 @@
-export function gameSnake() {
+function gameSnake() {
 
    let canvas = document.getElementById("snake");
    let ctxElement = canvas.getContext("2d");
@@ -13,7 +13,7 @@ export function gameSnake() {
    let score = 0;
    let speed = 250;
 
-   let gamer = "test"; //prompt("Ինչ է քո անունը ?");
+   let gamer = prompt("Ինչ է քո անունը ?");
 
    let food = ['գաթա', 'բանան', 'նուռ', 'խնձոր', 'ելակով տորթ', 'սերկևիլ', 'մի բան', 'ինչ ուզում ես', 'քո սիրած բանը', 'ու ոչ մի բան մի', 'ջուր խմի ու մի', 'ճաշ', 'խորոված', 'մսով փլավ', 'ծամոն'];
 
